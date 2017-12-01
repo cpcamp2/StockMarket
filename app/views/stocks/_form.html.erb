@@ -15,10 +15,11 @@
     <%= f.label :ticker %><br>
     <%= f.text_field :ticker %>
   </div>
+  
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.text_field :user_id, value: current_user.id, type: :hidden %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
