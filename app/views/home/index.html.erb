@@ -1,2 +1,25 @@
-<h1>StockMarket</h1>
-<p>Hello hello! Ya ya yaaaaa!</p>
+<%= form_tag root_path, :method => 'POST' do %>
+    <%= text_field_tag 'id', nil, placeholder: 'Enter Stock Symbol', size: 30 %>
+    <%= submit_tag 'Search' %>
+<% end %>
+
+<br/><br/>
+
+<% if @stock %>
+    <strong>Company Name: </strong><%= @stock.name %> - <%= @stock.symbol %><br/>
+    <strong>Current Ask: </strong><%= @stock.l %><br/>
+    <strong>Earnings Per Share: </strong><%= @stock.eps %><br/>
+    <strong>Price/Earning Ratio: </strong><%= @stock.pe %><br/>
+    <strong>Market Cap: </strong><%= @stock.mc %><br/>
+    <strong>Stock Open: </strong><%= @stock.op %><br/>
+    <strong>Day's Range: </strong><%= @stock.lo %> - <%= @stock.hi %><br/>
+    <strong>Year High: </strong><%= @stock.hi52 %><br/>
+    <strong>Year Low: </strong><%= @stock.lo52 %><br/>
+    <strong>Summary: </strong><%= @stock.summary[0]['overview'] %><br/>
+<% elsif @nothing %>
+    <%= @nothing %>
+<% end %>
+
+<% if @error %>
+    <%= @error %>
+<% end %>
